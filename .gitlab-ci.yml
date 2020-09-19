@@ -1,0 +1,12 @@
+stages:
+  - buil
+
+build:
+  stage: build
+  script:
+    - apt-get install git make curl binutils -y
+    - curl -fsSL https://get.docker.com -o get-docker.sh
+    - sh get-docker.sh
+    - make os
+  only:
+    - tags
